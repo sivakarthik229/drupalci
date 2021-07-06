@@ -1,6 +1,9 @@
 name: Drupal coding standards
 
-on: [pull_request]
+on:
+  push:
+    branches-ignore:
+      - master
 
 jobs:
   phpcs-drupal:
@@ -24,7 +27,7 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
-      - name: Drupal coding standards
+      - name: PHPCS Drupal check with Annotations
         uses: guix77/phpcs-drupal-action@v1.0.0
 
       - name: Upload artifact for deployment job
