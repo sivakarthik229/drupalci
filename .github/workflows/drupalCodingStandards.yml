@@ -26,9 +26,9 @@ jobs:
 
       - name: Drupal coding standards
         uses: guix77/phpcs-drupal-action@v1.0.0
-      
+
       - name: Upload artifact for deployment job
-          uses: actions/upload-artifact@v2
-          with:
-            name: php-app
-            path:
+        uses: actions/upload-artifact@v2
+        with:
+          name: php-app
+          path:
