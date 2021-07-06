@@ -31,8 +31,8 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
-      - name: Run phpcs-drupal with reviewdog
-        uses: acrollet/action-phpcs-drupal@v1.0.2
+      - name: PHPCS Drupal check with Annotations
+        uses: guix77/phpcs-drupal-action@v1.0.0
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
