@@ -4,8 +4,25 @@ on: [pull_request]
 
 jobs:
   phpcs-drupal:
-    name: Drupal coding standards
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - uses: guix77/phpcs-drupal-action@v1.0.0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+
+      - name: Check if composer.json exists
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "composer.json"
+
+      - name: Run composer install if composer.json exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
+
+      - name: Drupal coding standards
+        uses: guix77/phpcs-drupal-action@v1.0.0
