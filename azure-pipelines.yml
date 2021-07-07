@@ -61,9 +61,6 @@ stages:
         azureSubscriptionEndpoint: 'Free Trial (81fed24e-a688-43b9-aaf4-7dfc360c1d33)'
         azureResourceGroup: 'sivakarthik229'
         kubernetesCluster: 'drupalci'
-      command: 
-        secretType: 'dockerRegistry'
-        containerRegistryType: 'Azure Container Registry'
 
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'Upload package'
@@ -85,6 +82,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App : drupalci'
             inputs:
+              appType: 'webApp'
               azureSubscription: $(azureSubscription)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
