@@ -39,6 +39,11 @@ jobs:
         with:
           name: php-app
           path: .
+      - name: Drush Status
+        run: ./vendor/bin/drush status
+
+      - name: Drush config import
+        run: ./vendor/bin/drush cim
 
   deploy:
     runs-on: ubuntu-latest

@@ -32,3 +32,6 @@ jobs:
 
       - name: Drush Status
         run: ./vendor/bin/drush status
+
+      - name: Drush config import
+        run: ./vendor/bin/drush cim
