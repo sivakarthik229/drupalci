@@ -1,0 +1,14 @@
+uuid: 9640a944-a752-4817-a79f-3579302b1359
+name: 'Drupal CI'
+mail: sivakarthik229@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

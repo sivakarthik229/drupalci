@@ -1,0 +1,10 @@
+uuid: be27daa2-a25e-42ff-aaec-2ae8293e046d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: fURxUigLuNciKlJa3rVc9EWyybnCiAyWASCEE1pIHFo
+id: banner
+label: Banner
+revision: 0
+description: 'Contains text over a large image.'
