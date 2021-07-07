@@ -34,4 +34,4 @@ jobs:
         run: ./vendor/bin/drush status
 
       - name: Drush config import
-        run: ./vendor/bin/drush config-import
+        run: ./vendor/bin/drush config-import --debug
