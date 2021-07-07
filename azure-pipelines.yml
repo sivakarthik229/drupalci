@@ -54,6 +54,16 @@ stages:
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
+      
+    - task: Kubernetes@1
+      inputs:
+        connectionType: 'Azure Resource Manager'
+        azureSubscriptionEndpoint: 'Free Trial (81fed24e-a688-43b9-aaf4-7dfc360c1d33)'
+        azureResourceGroup: 'sivakarthik229'
+        kubernetesCluster: 'drupalci'
+      command: 
+        secretType: 'dockerRegistry'
+        containerRegistryType: 'Azure Container Registry'
 
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'Upload package'
